@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/style.css"> 
+
+</head>
+
+<body>
+    <div class="outer">
+        <h1>Dashboard</h1>
+        <div id="welcomemessage"></div>
+        <div class="form-group">
+                <div class="input-container">
+                    <div class="inner">
+                        <label for="file1">Choose your photo 1:</label>
+                        <input type="file" name="file1" id="file1" accept="image/png,image/jpeg" required onchange="showImage('image1')">
+                        <label class="input-label" for="file1"><strong>Drag and drop files here</strong></label>
+                        <label class="input-label" for="file1">File format: PDF/ Image / Scan </label>
+                        <label class="input-label" for="file1">Maximum Size: 5MB</label>
+                    </div>
+                    <div class="inner">
+                        <label for="file2">Choose your Photo 2:</label>
+                        <input type="file" name="file2" id="file2" accept="image/png,image/jpeg" required onchange="showImage('image2')">
+                        <label class="input-label" for="file2"><strong>Drag and drop files here</strong></label>
+                        <label class="input-label" for="file2">File format: PDF/ Image / Scan </label>
+                        <label class="input-label" for="file2">Maximum Size: 5MB</label>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div class="image-display">
+                        <img id="image1" src="" alt="Image 1">
+                    </div>
+                    <div class="image-display">
+                        <img id="image2" src="" alt="Image 2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" onclick="compareButton()">Compare</button>
+                    <div id="message"> </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/javascript.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        const queryString = window.location.search;
+        console.log("This is the user's mailID:" , queryString);
+        const urlParams = new URLSearchParams(queryString);
+        const user_name = urlParams.get('user_name')
+        console.log(user_name);
+        document.getElementById('welcomemessage').textContent = 'Welcome, ' + user_name
+    </script>
+</body>
+
+</html>
